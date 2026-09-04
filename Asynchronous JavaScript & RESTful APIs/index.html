@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A real-time Weather Dashboard built with JavaScript, Fetch API, async/await and a public REST API."
+    >
+
+    <meta
+        name="keywords"
+        content="weather dashboard, JavaScript weather app, REST API, Fetch API"
+    >
+
+    <meta
+        name="author"
+        content="Weather Dashboard"
+    >
+
+    <title>Weather Dashboard | Real-Time Weather</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <main class="weather-app">
+
+        <!-- Header -->
+
+        <header class="app-header">
+
+            <div class="brand">
+                <span class="brand-icon" aria-hidden="true">☁</span>
+
+                <div>
+                    <p class="eyebrow">LIVE WEATHER</p>
+
+                    <h1>Weather Dashboard</h1>
+                </div>
+            </div>
+
+            <p class="intro">
+                Search any city to view real-time weather conditions.
+            </p>
+
+        </header>
+
+
+        <!-- Search -->
+
+        <section
+            class="search-section"
+            aria-labelledby="search-title"
+        >
+
+            <h2 id="search-title" class="sr-only">
+                Search for a city
+            </h2>
+
+            <form id="weather-form" class="search-form">
+
+                <label
+                    for="city-input"
+                    class="sr-only"
+                >
+                    Enter city name
+                </label>
+
+                <input
+                    type="search"
+                    id="city-input"
+                    name="city"
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" id="search-button">
+                    Search
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Loading -->
+
+        <div
+            id="loading"
+            class="status loading hidden"
+            aria-live="polite"
+        >
+            <span class="spinner" aria-hidden="true"></span>
+            Fetching live weather data...
+        </div>
+
+
+        <!-- Error -->
+
+        <div
+            id="error-message"
+            class="status error hidden"
+            role="alert"
+        ></div>
+
+
+        <!-- Weather Result -->
+
+        <section
+            id="weather-result"
+            class="weather-result hidden"
+            aria-live="polite"
+        >
+
+            <!-- Location -->
+
+            <div class="location-header">
+
+                <div>
+
+                    <p class="label">CURRENT WEATHER</p>
+
+                    <h2 id="city-name">—</h2>
+
+                    <p id="weather-condition">
+                        — 
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Main Temperature -->
+
+            <article class="temperature-card">
+
+                <div class="temperature">
+
+                    <span id="temperature">
+                        —
+                    </span>
+
+                    <span class="degree">°C</span>
+
+                </div>
+
+                <p class="temperature-label">
+                    Current Temperature
+                </p>
+
+            </article>
+
+
+            <!-- Required Weather Metrics -->
+
+            <section
+                class="weather-details"
+                aria-labelledby="details-title"
+            >
+
+                <h2 id="details-title">
+                    Weather Details
+                </h2>
+
+
+                <div class="details-grid">
+
+
+                    <!-- Temperature -->
+
+                    <article class="weather-card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            🌡️
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Temperature
+                            </p>
+
+                            <strong id="temperature-detail">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Humidity -->
+
+                    <article class="weather-card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            💧
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Humidity
+                            </p>
+
+                            <strong id="humidity">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Wind Speed -->
+
+                    <article class="weather-card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            💨
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Wind Speed
+                            </p>
+
+                            <strong id="wind-speed">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer class="app-footer">
+
+            <p>
+                Real-time weather data powered by Open-Meteo.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
